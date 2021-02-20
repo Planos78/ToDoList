@@ -1,23 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import Input from './Input'
+import Navbar from './Navbar'
+import Footer from './Footer'
+import List from './List'
+import React, { useState } from 'react'
 
-function App() {
+let id = 1;
+const App = () => {
+  const [posts, setPosts] = useState([]);
+  function addPost(textInput) {
+    const newPost = { id, textInput }
+    setPosts([newPost, ...posts])
+    id += 1;
+  }
+  function deletePost(id) {
+    const result = window.confirm('คุณต้องการลบรายการใช่ไหม');
+    if (result === true) {
+      const updatePost = posts.filter((post) => (
+        post.id !== id
+      ))
+      setPosts(updatePost);
+      alert('คุณลบรายการเรียบร้อย')
+    } else {
+      alert('คุณทำรายการไม่สำเสร็จ')
+    }
+
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Input addPost={addPost} />
+      {posts.map((lists) => (
+        <List key={lists.id} id={lists.id} title={lists.textInput} deletePost={deletePost} />
+      ))}
+      <Footer />
     </div>
   );
 }

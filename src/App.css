@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+* {
+  box-sizing: border-box;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+body {
+  margin: 0;
+  background: #e9ebee;
+  color: #1d2129;
+}
+.Navbar {
+  background:  #2c292f; 
+  padding: 1%;
+}
+
+.Navbar > h3{
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+h3 > span {
+  color: #e0ac1c;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Input, .List{
+ border: 1px solid white;
+ width: 576px;
+ background: #f5f6f7;
+ padding: 0%;
+ margin: 20px auto;
+}
+.List:hover{
+  background: white;
+}
+.Input__header{
+  font-weight: bold;
+  padding: 1%;
+}
+
+.Input__field{
+  width: 100%;
+  border: none;
+  padding: 10px;
+  background: white;
+  padding: 1%;
+  height: 100px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.Input__field:focus{
+  outline: none;
+}
+
+.Footer{
+  position: fixed;
+  bottom: 0;
+  background: #2c292f;
+  width: 100%;
+  height: 5%;
+}
+
+.Footer > .Footer__field{
+  color: #e9ebee;
+}
+
+.List__field{
+  padding: 1%;
+  
+}
+
+.List__delete{
+  float: right;
+  border: none;
+  background: none;
+}
+
+.List__delete:focus{
+  outline:none;
+}
+
+.List__delete:hover{
+  color: red;
+  background: white;
+}
+
+.List__content{
+  font-weight: bold;
+  font-size: 14;
 }
